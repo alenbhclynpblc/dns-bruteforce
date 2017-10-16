@@ -106,7 +106,12 @@ class Bruter:
 """)
 		
 	def analyse(self):
-		self.outputHandler.notify("Analyse starting for : " + self.baseFqdn)
+		self.outputHandler.notify("Analyse starting for : " + str(self.baseFqdn))
+		self.outputHandler.notify("\t Thread Limit: " + str(self.concurrentThreadLimit))
+		self.outputHandler.notify("\t Minimum Length: " + str(self.minimumLength))
+		self.outputHandler.notify("\t Maximum Length: " + str(self.maximumLength))
+		self.outputHandler.notify("\t DNS Servers: " + str(self.dnsServers))
+		self.outputHandler.notify("\t Characters: " + str(self.characters))
 		for fqdn in self.generateFqdn():
 			self.totalQuery += 1
 			if self.currentThreadsCount < self.concurrentThreadLimit:
